@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <div class="row">
+        {% for Pokemon, value in Pokemons.items %}
+        <div class="card col-md-4">
+            <div class="card-body">
+                <center><h3>{{ value.Name }}</h3></center>
+                <img src="{{ value.Photo }}" width="200px" height="200px">
+                <a href="{% url 'pokemon' value.Id %}" class="btn btn-primary">Ver pokemon</a>
+            </div>
+        </div>
+        {% endfor %}
+        <a href="{% url 'paginado_pokemon' 20 %}" class="btn btn-primary">Siguiente</a>
+    </div>
+{% endblock %}

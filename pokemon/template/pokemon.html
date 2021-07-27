@@ -1,0 +1,67 @@
+{% extends 'index.html' %}
+
+{% block content %}
+        <div class="card">
+            <div class="card-body">
+
+                <center><h3> {{ Name }} </h3> </center>
+
+                <center><img src="{{ Photo }}" width="200px" height="200px"></center>
+                <table class="table table-bordered"> 
+                    <thead>
+                        <tr>
+                            <th  class="bg-info text-white">Peso</th>
+                            <th class="bg-info text-white">Altura</th>
+                            <th class="bg-primary text-white">Tipo</th>
+                            <th class="bg-success text-white">Habilidades</th>
+                            <th  class="bg-danger text-white">Movimientos</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>{{ weight }} </td>
+                            <td>{{ height }}</td>
+                            <td>
+                                {% for type, value in types.items %}
+                                <ul>
+                                    <li>
+                                        <a href="{% url 'tipos_pokemon' value.id %}">{{value.type}}</a>
+                                    </li>
+                                    
+                                </ul>
+                                
+                                {% endfor %} 
+                            </td>
+
+                            <td>
+                                {% for ability in abilities %}
+                                <ul>
+                                    <li>
+                                        <p> {{ability}}</p>
+                                    </li>
+                                </ul>
+                                
+                                {% endfor %}
+
+                            </td>
+
+                            <td>
+                                {% for move in moves %}
+                                <ul>
+                                    <li>
+                                        <p> {{move}}</p>
+                                    </li>
+                                </ul>
+                
+                                {% endfor %}
+
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+{% endblock %}

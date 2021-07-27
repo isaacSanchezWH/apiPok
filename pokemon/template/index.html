@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+
+	{% block extrastatic %}
+	{% endblock %}
+
+	<link rel="stylesheet" href="{% static 'css/bootstrap3.min.css' %}">
+	<title>{% block title %}Poke library {% endblock %}</title>
+</head>
+<body>
+<div class="container">
+
+	{% block navbar %}
+		<div class="bs-docs-section clearfix">
+		    <div class="row">
+		        <div class="col-lg-12">
+		            <div class="bs-component">
+		            	<nav class="navbar ">
+		                	<div class="container-fluid">
+		                  		<div class="navbar-header">
+		                    		<a class="navbar-brand text-white" href="{% url 'index' %}">Home</a>
+                                    <a class="navbar-brand text-white" href="{% url 'lista_pokemon' %}">Lista Pokemon</a>
+		                  		</div>
+		                     </div>
+		                 </nav>
+		            </div>
+           	    </div>
+             </div>
+         </div>    
+
+	{% endblock %}
+
+
+	{% block content %}
+         <center>
+             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/2560px-International_Pok%C3%A9mon_logo.svg.png" width="70%" height="70%">
+         </center>
+		 <center><img src="https://img.icons8.com/color/452/pokedex.png" width="25%" height="25%"></center>
+	{% endblock %}
+
+
+	{% block footer %}
+	{% endblock%}
+</div>
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+	{% block extrajs %}
+	{% endblock %}
+
+
+</body>
+</html>
+
+<style>
+	body {
+		background-image: url('https://i0.wp.com/hipertextual.com/wp-content/uploads/2017/03/color-degradado-fondos-degradados-multicolor-51200.jpg?fit=1920%2C1200&ssl=1');
+		/* Para dejar la imagen de fondo centrada, vertical y
+		horizontalmente */
+
+		background-position: center center;
+
+		/* Para que la imagen de fondo no se repita */
+
+		background-repeat: no-repeat;
+
+		/* La imagen se fija en la ventana de visualización para que la altura de la imagen no supere a la del contenido */
+
+		background-attachment: fixed;
+
+		/* La imagen de fondo se reescala automáticamente con el cambio del ancho de ventana del navegador */
+
+		background-size: cover;
+
+		/* Se muestra un color de fondo mientras se está cargando la imagen
+
+		de fondo o si hay problemas para cargarla */
+
+		background-color: rgb(32, 109, 180);
+
+	}
+
+	.navbar-brand{
+		font: oblique bold 120% cursive;
+		font-size: 40px;
+	}
+</style>
